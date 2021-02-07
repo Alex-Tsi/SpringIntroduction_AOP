@@ -3,6 +3,7 @@ package com.aop.spring.springaopdemo.zoo.services;
 import com.aop.spring.springaopdemo.zoo.animals.Animal;
 import com.aop.spring.springaopdemo.zoo.aspects.AddRegister;
 import com.aop.spring.springaopdemo.zoo.aspects.GetRegister;
+import com.aop.spring.springaopdemo.zoo.aspects.ReturnRegister;
 
 public abstract class AbstractZoos implements Zoo {
 
@@ -27,9 +28,11 @@ public abstract class AbstractZoos implements Zoo {
         return animal.getName();
     }
 
+    @ReturnRegister
     @Override
     public void returnAnimal() {
-
+        System.out.println("Throw exception");
+        throw new RuntimeException("after return throwing exception");
     }
 
     @Override

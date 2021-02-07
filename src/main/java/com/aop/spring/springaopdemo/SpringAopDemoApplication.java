@@ -19,5 +19,10 @@ public class SpringAopDemoApplication {
         Animal animal = context.getBean("tiger", Animal.class);
         System.out.println(msc.addAnimal(animal));
         msc.getAnimal(animal, "Alex");
+        try {
+            msc.returnAnimal();
+        } catch (Exception e) {
+            System.out.println("In main " + e.getMessage());
+        }
     }
 }
